@@ -1,5 +1,5 @@
 # Book storage
 
-Basic console application where you can storage books by their name and author's name.
+Basic console application where you can storage books by their name and author's name in a txt file.
 
-By the way this application uses windows system calls (cls).
+This application uses windows system calls (cls).

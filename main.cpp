@@ -9,7 +9,7 @@ class Book {
         std::ofstream data_file_write;
         std::ifstream data_file_read;
 
-    void show_data() {
+    void show_book_data() {
         data_file_read.open("data.txt");
 
         if(data_file_read.is_open()) {
@@ -21,23 +21,24 @@ class Book {
         }
     }
 
-    void save_data() {
+    void save_book_data() {
         data_file_write.open("data.txt", std::ios_base::app);
 
         if(data_file_write.is_open()) {
             data_file_write << name << " by " << author << std::endl;
-           
+
             data_file_write.close();
         }
     }
 };
 
-void add_book() {
+void add_new_book() {
     system("cls");
 
     Book new_book;
     std::cout << "Insert the book's name\n";
 
+    //cin.ignore used to clear the input buffer
     std::cin.ignore();
     std::cout << "\n-> ";
     std::getline(std::cin, new_book.name);
@@ -47,7 +48,7 @@ void add_book() {
     std::getline(std::cin, new_book.author);
 
     std::cout << "\nBook saved";
-    new_book.save_data();
+    new_book.save_book_data();
 }
 
 void current_books() {
@@ -56,19 +57,20 @@ void current_books() {
     std::cout << "Current books saved: \n";
 
     Book current_books;
-    current_books.show_data();
+    current_books.show_book_data();
 }
 
 int main() {
     system("cls");
     std::cout << "Welcome, please choose an option\n 1 - Add a new book \n 2 - See current books saved\n";
     std::cout << "\n-> ";
+
     int input;
     std::cin >> input;
 
     switch(input) {
         case 1:
-            add_book();
+            add_new_book();
         break;
         case 2:
             current_books();
